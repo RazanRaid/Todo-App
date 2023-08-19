@@ -16,8 +16,11 @@ struct ContentView: View {
             Todo(title: "study physcis")
         ]
         
-        List(todos){ todo in
-            Text(todo.title)
+        NavigationStack {
+            List(todos){ todo in
+                Text(todo.title)
+            }
+            .navigationTitle("Todos")
         }
     }
 }
