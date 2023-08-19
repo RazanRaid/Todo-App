@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        @State var todos = [
+            Todo(title: "feed the cat"),
+            Todo(title: "go for walk"),
+            Todo(title: "study physcis")
+        ]
+        
+        List(todos){ todo in
+            Text(todo.title)
         }
-        .padding()
     }
 }
 
