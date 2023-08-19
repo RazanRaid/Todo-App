@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State var todos = [
         Todo(title: "feed the cat"),
-        Todo(title: "go for walk",subtitle: ""),
+        Todo(title: "go for walk",subtitle: "   "),
         Todo(title: "study physcis",subtitle: "chapter 4"),
     ]
     
@@ -28,11 +28,11 @@ struct ContentView: View {
                         Text(todo.title)
                         .strikethrough( todo.isCompleted )
                         
-                        if todo.subtitle != "" {
+                        if !todo.subtitle.isEmpty {
                             Text(todo.subtitle)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                                
+                                .strikethrough( todo.isCompleted )
                         }
                     }
                 }
