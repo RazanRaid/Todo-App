@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var todos = [
         Todo(title: "feed the cat"),
         Todo(title: "go for walk"),
-        Todo(title: "study physcis"),
+        Todo(title: "study physcis",subtitle: "chapter 4"),
     ]
     
     var body: some View {
@@ -24,10 +24,19 @@ struct ContentView: View {
                         .onTapGesture {
                             todo.isCompleted.toggle()
                         }
-                    Text(todo.title)
+                    VStack(alignment: .leading ){
+                        Text(todo.title)
                         .strikethrough( todo.isCompleted )
-                    
+                        
+                        if (todo.subtitle != nil) {
+                            Text(todo.subtitle!)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                
+                        }
+                    }
                 }
+                
             }
             .navigationTitle("Todos")
         }
