@@ -11,5 +11,5 @@ struct Todo: Identifiable {
     var id = UUID()
     var title : String
     var isCompleted = false
-    var subtitle : String?
+    var subtitle = ""
 }
