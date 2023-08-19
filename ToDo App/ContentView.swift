@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var todos = [
+        Todo(title: "feed the cat"),
+        Todo(title: "go for walk"),
+        Todo(title: "study physcis"),
+    ]
+    
     var body: some View {
         
-        @State var todos = [
-            Todo(title: "feed the cat"),
-            Todo(title: "go for walk"),
-            Todo(title: "study physcis")
-        ]
-        
         NavigationStack {
-            List(todos){ todo in
-                Text(todo.title)
+            List($todos){ $todo in
+                HStack {
+                    Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                        .onTapGesture {
+                            todo.isCompleted.toggle()
+                        }
+                    Text(todo.title)
+                        .strikethrough( todo.isCompleted )
+                    
+                }
             }
             .navigationTitle("Todos")
         }
