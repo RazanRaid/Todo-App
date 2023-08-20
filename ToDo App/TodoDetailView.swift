@@ -23,7 +23,18 @@ struct TodoDetailView: View {
             
             }
             Section("Extra"){
-                
+                DatePicker("due date", selection: $todo.selectedDate
+                           , in: ...Date(), displayedComponents: .date)
+                                .datePickerStyle(GraphicalDatePickerStyle())
+                                .labelsHidden()
+                                .padding()
+                Toggle(isOn: $todo.priortise) {
+                    HStack{
+                        Image(systemName: "calendar.badge.exclamationmark")
+                        Text("priortise")
+                        
+                    }
+                }
             }
         }
         .navigationTitle("Todo Details")

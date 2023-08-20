@@ -19,6 +19,8 @@ struct ContentView: View {
         
         NavigationStack {
             List($todos){ $todo in
+                
+                
                 HStack {
                     Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
                         .onTapGesture {

@@ -12,4 +12,6 @@ struct Todo: Identifiable {
     var title : String
     var isCompleted = false
     var subtitle = ""
+    var selectedDate = Date()
+    var priortise = false
 }
