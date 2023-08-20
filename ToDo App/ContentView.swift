@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State var todos = [
         Todo(title: "feed the cat"),
-        Todo(title: "go for walk",subtitle: "   "),
+        Todo(title: "go for walk",subtitle: ""),
         Todo(title: "study physcis",subtitle: "chapter 4"),
     ]
     
@@ -20,16 +20,22 @@ struct ContentView: View {
         NavigationStack {
             List($todos){ $todo in
                 
-                
+                NavigationLink{
+                    TodoDetailView(todo: $todo)
+                }label: {
                 HStack {
                     Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
                         .onTapGesture {
                             todo.isCompleted.toggle()
                         }
                     VStack(alignment: .leading ){
-                        Text(todo.title)
-                        .strikethrough( todo.isCompleted )
-                        
+                        HStack{
+                            Text(todo.priortise ? "‼️" : "")
+                            Text(todo.title)
+                                .strikethrough( todo.isCompleted )
+
+                            
+                        }
                         if !todo.subtitle.isEmpty {
                             Text(todo.subtitle)
                                 .font(.caption)
@@ -49,4 +55,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
 }
