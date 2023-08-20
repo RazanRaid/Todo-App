@@ -13,7 +13,8 @@ struct ContentView: View {
         Todo(title: "feed the cat"),
         Todo(title: "go for walk",subtitle: ""),
         Todo(title: "study physcis",subtitle: "chapter 4"),
-        Todo(title: "online shopping")
+        Todo(title: "online shopping"),
+        Todo(title: "uuuuuuhhhhhhhh")
     ]
     
     var body: some View {
@@ -24,37 +25,38 @@ struct ContentView: View {
                 NavigationLink{
                     TodoDetailView(todo: $todo)
                 }label: {
-                HStack {
-                    Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
-                        .onTapGesture {
-                            todo.isCompleted.toggle()
-                        }
-                    Text(todo.priortise ? "‼️" : "")
-                    VStack(alignment: .leading ){
+                    HStack {
+                        Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                            .onTapGesture {
+                                todo.isCompleted.toggle()
+                            }
+                        Text(todo.priortise ? "‼️" : "")
+                        VStack(alignment: .leading ){
                             Text(todo.title)
                                 .strikethrough( todo.isCompleted )
-
-                        if !todo.subtitle.isEmpty {
-                            Text(todo.subtitle)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .strikethrough( todo.isCompleted )
+                            
+                            if !todo.subtitle.isEmpty {
+                                Text(todo.subtitle)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                    .strikethrough( todo.isCompleted )
+                            }
                         }
                     }
+                    
                 }
-                
             }
             .navigationTitle("Todos")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
+                    }
                 }
-            }
-
-                }
+                
             }
         }
     }
+
 
 
 struct ContentView_Previews: PreviewProvider {
