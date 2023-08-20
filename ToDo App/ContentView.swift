@@ -16,7 +16,7 @@ struct ContentView: View {
         Todo(title: "online shopping"),
         Todo(title: "uuuuuuhhhhhhhh")
     ]
-    
+    @State private var showSheet = false
     var body: some View {
         
         NavigationStack {
@@ -51,11 +51,25 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                     }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                       showSheet=true
+                    }label: {
+                        Image(systemName: "plus")
+                    }
+                    
                 }
-                
+                }
+            .sheet(isPresented: $showSheet) {
+                CreateTodoView(sourceArray: $todos)
+                    .presentationDetents([.medium])
+                     .presentationDragIndicator(.visible)
+            }
+
+            }
             }
         }
-    }
+    
 
 
 
