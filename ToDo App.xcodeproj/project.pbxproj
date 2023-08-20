@@ -58,10 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				C467C7252A912434007D5AF7 /* ToDo_AppApp.swift */,
-				C467C7272A912434007D5AF7 /* ContentView.swift */,
-				C467C7372A91B0C7007D5AF7 /* CreateTodoView.swift */,
-				C467C7352A914B4A007D5AF7 /* TodoDetailView.swift */,
-				C467C7332A9124C9007D5AF7 /* Todo.swift */,
+				C467C7392A921052007D5AF7 /* views */,
+				C467C73A2A921068007D5AF7 /* models and modelviews */,
 				C467C7292A912435007D5AF7 /* Assets.xcassets */,
 				C467C72B2A912435007D5AF7 /* Preview Content */,
 			);
@@ -74,6 +72,24 @@
 				C467C72C2A912435007D5AF7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C467C7392A921052007D5AF7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C467C7272A912434007D5AF7 /* ContentView.swift */,
+				C467C7372A91B0C7007D5AF7 /* CreateTodoView.swift */,
+				C467C7352A914B4A007D5AF7 /* TodoDetailView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		C467C73A2A921068007D5AF7 /* models and modelviews */ = {
+			isa = PBXGroup;
+			children = (
+				C467C7332A9124C9007D5AF7 /* Todo.swift */,
+			);
+			path = "models and modelviews";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
