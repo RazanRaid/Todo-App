@@ -13,12 +13,13 @@ struct ContentView: View {
         Todo(title: "feed the cat"),
         Todo(title: "go for walk",subtitle: ""),
         Todo(title: "study physcis",subtitle: "chapter 4"),
+        Todo(title: "online shopping")
     ]
     
     var body: some View {
         
         NavigationStack {
-            List($todos){ $todo in
+            List($todos, editActions: [.all]){ $todo in
                 
                 NavigationLink{
                     TodoDetailView(todo: $todo)
@@ -28,14 +29,11 @@ struct ContentView: View {
                         .onTapGesture {
                             todo.isCompleted.toggle()
                         }
+                    Text(todo.priortise ? "‼️" : "")
                     VStack(alignment: .leading ){
-                        HStack{
-                            Text(todo.priortise ? "‼️" : "")
                             Text(todo.title)
                                 .strikethrough( todo.isCompleted )
 
-                            
-                        }
                         if !todo.subtitle.isEmpty {
                             Text(todo.subtitle)
                                 .font(.caption)
@@ -47,13 +45,16 @@ struct ContentView: View {
                 
             }
             .navigationTitle("Todos")
+
+                }
+            }
         }
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-}
+
