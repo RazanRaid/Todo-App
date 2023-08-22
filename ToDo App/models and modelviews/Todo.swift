@@ -18,6 +18,6 @@ struct Todo: Identifiable, Codable {
 
 func formatDate(date: Date) -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    dateFormatter.dateFormat = "dd-MM-yyyy"
     return dateFormatter.string(from: date)
 }

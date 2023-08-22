@@ -23,10 +23,9 @@ struct TodoDetailView: View {
             
             }
             Section("Extra"){
-                DatePicker("due date", selection: $todo.selectedDate
-                           , in: ...Date(), displayedComponents: .date)
+                DatePicker("Due Date", selection: $todo.selectedDate
+                           , in: Date()..., displayedComponents: .date)
                                 .datePickerStyle(GraphicalDatePickerStyle())
-                                .labelsHidden()
                                 .padding()
                 Toggle(isOn: $todo.priortise) {
                     HStack{
